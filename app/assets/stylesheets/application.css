@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+
+.standard-button{
+	background-color: rgba(250, 204, 46, 1);
+}
