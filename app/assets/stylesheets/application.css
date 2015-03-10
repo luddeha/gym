@@ -21,7 +21,6 @@
 
 .arnold{
 	background-image: url("http://i.imgur.com/VgS4oTL.jpg");
-	height: 100%;
 }
 
 
@@ -30,4 +29,8 @@
   font-size: 48px;
   text-shadow: 4px 4px 4px #aaa;
   color: #999;
+}
+
+.top-buffer{
+	margin-top: 180px;
 }
