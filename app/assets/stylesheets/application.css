@@ -18,3 +18,13 @@
 .standard-button{
 	background-color: rgba(250, 204, 46, 1);
 }
+
+.arnold{
+	background-image: url("http://i.imgur.com/VgS4oTL.jpg");
+}
+
+.welcome-text{
+	padding: 35px;
+	border: 2px solid #000000;
+	background-color: rgba(250, 204, 46, 0.5);
+}
