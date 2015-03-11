@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<script src="https://code.jquery.com/jquery.js"></script>
   	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,7 +37,34 @@
 
 		</div>
 
-		<div id='addExercise'>
+		<div id='addExercise' class="container">
+
+			<div class="row">
+				<div class="col-md-3">
+					<div class="input-group">
+						<input id="exerciseName" type="text" class="form-control" placeholder="Enter exercise name">
+						<span class="input-group-btn">
+							<button id="btnExerciseName" class="btn btn-default" type="button">search</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+				<div class="col-md-3">
+					<div class="input-group">
+						<input id="exerciseDescription" type="text" class="form-control" placeholder="Enter exercise name">
+						<span class="input-group-btn">
+							<button id="btnExerciseDescription" class="btn btn-default" type="button">search</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+				<div class="col-md-3">
+					<div class="input-group">
+						<input id="exerciseImage" type="text" class="form-control" placeholder="Enter exercise name">
+						<span class="input-group-btn">
+							<button id="btnExerciseImage" class="btn btn-default" type="button">search</button>
+						</span>
+					</div><!-- /input-group -->
+				</div>
+			</div>
 			
 
 		</div>
@@ -50,6 +78,11 @@
 			
 
 		</div>
+
+
+		<script>
+			$("#welcome").hide();
+		</script>
 
 	</body>
 </html>
