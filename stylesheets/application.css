@@ -35,3 +35,9 @@
 .top-buffer{
 	margin-top: 180px;
 }
+
+.padding-input-boxes{
+	padding: 5px;
+	border: 2px solid #000000;
+	background-color: rgba(250, 204, 46, 0.5);
+}
