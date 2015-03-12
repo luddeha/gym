@@ -1,7 +1,8 @@
 var app = angular.module('app', ['ngRoute']);
 
 // Test data
-var testSessions = [{
+var testSessions = {1: {
+    id: 1,
     date: new Date(2015, 1, 10),
     exercises: [
     {
@@ -17,7 +18,8 @@ var testSessions = [{
       weight: 70,
     }]
   },
-  {
+  2: {
+    id: 2,
     date: new Date(2015, 1, 13),
     exercises: [
     {
@@ -33,12 +35,17 @@ var testSessions = [{
       weight: 70,
     }]
   }
-];
+};
 
 // Controllers
-app.controller('SessionCtrl', ['$scope', function($scope) {
+app.controller('SessionsCtrl', function($scope) {
   $scope.sessions = testSessions;
-}]);
+});
+
+app.controller('SessionCtrl', function($scope, $routeParams) {
+  $scope.params = $routeParams;
+  // TODO: something like $scope.exercises =
+});
 
 // Routes
 app.config(['$routeProvider',
@@ -55,6 +62,10 @@ app.config(['$routeProvider',
       }).
       when('/log', {
         templateUrl: 'templates/log.html',
+        controller: 'SessionsCtrl'
+      }).
+      when('/log/:id', {
+        templateUrl: 'templates/log_session.html',
         controller: 'SessionCtrl'
       }).
       when('/test', {
