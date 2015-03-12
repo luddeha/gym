@@ -9,6 +9,12 @@ app.config(['$routeProvider',
       when('/exercises/add', {
         templateUrl: 'templates/add_exercise.html'
       }).
+      when('/session', {
+        templateUrl: 'templates/session.html'
+      }).
+      when('/log', {
+        templateUrl: 'templates/log.html'
+      }).
       otherwise({
         redirectTo: '/'
       });
