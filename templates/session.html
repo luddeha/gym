@@ -1,4 +1,24 @@
 <div id='session' class="container">
 	<h1 class="welcome-text">Session</h1>
 
+	<div class="text-box">
+    	<div ng-repeat="session in sessions">
+      	{{ session.date | date }}
+    </div>
+  </div>
+
+	<div class="row">
+        <div class="col-md-3 padding-input-boxes">
+        	<select>
+			  <option value="Chest">Chest</option>
+			  <option value="Triceps">Triceps</option>
+			  <option value="Biceps">Biceps</option>
+			  <option value="Back">Back</option>
+			</select>
+          </div><!-- /input-group -->
+        </div>
+    </div>
+
+
+
 </div>
