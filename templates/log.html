@@ -1,5 +1,7 @@
 <div id='log' class="container">
 	<h1 class="welcome-text">Log</h1>
-			
+  <div ng-repeat="session in sessions">
+    {{ session.date | date }}
+  </div>
 
 </div>
