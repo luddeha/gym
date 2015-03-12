@@ -1,24 +1,37 @@
 <div id='session' class="container">
 	<h1 class="welcome-text">Session</h1>
 
-	<div class="text-box">
-    	<div ng-repeat="session in sessions">
-      	{{ session.date | date }}
-    </div>
-  </div>
 
 	<div class="row">
-        <div class="col-md-3 padding-input-boxes">
+        <div class="col-md-2 padding-input-boxes">
         	<select>
 			  <option value="Chest">Chest</option>
 			  <option value="Triceps">Triceps</option>
 			  <option value="Biceps">Biceps</option>
 			  <option value="Back">Back</option>
 			</select>
-          </div><!-- /input-group -->
-        </div>
+          </div>
+    
+
+        <div class="col-md-2 padding-input-boxes">
+        	<select>
+			  <option value="Benchpress">Benchpress</option>
+			  <option value="Squats">Squats</option>
+			  <option value="Dips">Dips</option>
+			  <option value="Pullups">Pullups</option>
+			  <option value="Curls">Curls</option>
+			  <option value="Kickback">Kickback</option>
+			</select>
+		</div>
+
+		<div class="col-md-2 input-group">
+	        <input id="weight" type="text" class="form-control" placeholder="Enter weight">
+	    </div>
+
+	    <div class="col-md-2 input-group">
+	        <input id="reps" type="text" class="form-control" placeholder="Enter reps">
+	    </div>
+
     </div>
-
-
 
 </div>
