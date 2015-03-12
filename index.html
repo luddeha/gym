@@ -18,6 +18,12 @@
   </head>
 
   <body class="arnold">
+    <script> 
+    $(function(){
+      $("#banner").load("templates/link_banner.html"); 
+    });
+    </script>
+    <div id="banner"></div>
     <div ng-app="app">
 
       <div ng-view></div>
