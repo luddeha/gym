@@ -15,6 +15,9 @@ app.config(['$routeProvider',
       when('/log', {
         templateUrl: 'templates/log.html'
       }).
+      when('/test', {
+        templateUrl: 'templates/link_banner.html'
+      }).
       otherwise({
         redirectTo: '/'
       });
