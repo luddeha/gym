@@ -37,6 +37,19 @@ var testSessions = {1: {
   }
 };
 
+var exerciseTypes = [];
+
+function addTestData() {
+  exerciseTypes.push(new exerciseType('Bench Press', 'The most awesome exercise of them all!', 'Chest', 'http://i.imgur.com/SQa017K.gif'));
+}
+// Models
+
+function exerciseType(name, desc, muscle, imageLink) {
+  this.name = name;
+  this.description = desc;
+  this.muscle = muscle;
+  this.image = imageLink;
+}
 // Controllers
 app.controller('SessionsCtrl', function($scope) {
   $scope.sessions = testSessions;
@@ -47,6 +60,14 @@ app.controller('SessionCtrl', function($scope, $routeParams) {
   // TODO: something like $scope.exercises =
 });
 
+app.controller('ExercisesCtrl', function($scope) {
+  $scope.exercises = exerciseTypes;
+  $scope.addExercise = function() {
+    console.log('nej')
+    $scope.exercises.push(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
+  };
+});
+
 // Routes
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -55,7 +76,8 @@ app.config(['$routeProvider',
         templateUrl: 'templates/welcome.html'
       }).
       when('/exercises/add', {
-        templateUrl: 'templates/add_exercise.html'
+        templateUrl: 'templates/add_exercise.html',
+        controller: 'ExercisesCtrl'
       }).
       when('/session', {
         templateUrl: 'templates/session.html'
@@ -75,3 +97,5 @@ app.config(['$routeProvider',
         redirectTo: '/'
       });
   }]);
+
+addTestData();
