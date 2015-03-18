@@ -12,12 +12,18 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
       exercises: []
     };
   }
+  $scope.session = $scope.sessions[$scope.id];
   $scope.allExercises = exercises.exercises;
   $scope.exercises = $scope.sessions[$scope.id].exercises;
   $scope.muscleGroups = muscleGroups;
   $scope.selectedGroup = $scope.muscleGroups[0];
-  $scope.uniqueMuscleGroups = getAllMuscleGroups($routeParams['id']);
-  $scope.date = testSessions[$routeParams['id']]['date'];
+  $scope.uniqueMuscleGroups = function(){
+    var tempMuscleGroups = [];
+    for(i = 0; i < $scope.exercises.length; i++){
+      tempMuscleGroups.push($scope.exercises[i].muscleGroup);
+    }
+    return _.uniq(tempMuscleGroups);
+  };
   $scope.addExerciseToSession = function() {
     $scope.exercises.push({
       exercise: $scope.selectedExercise.name,

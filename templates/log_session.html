@@ -1,9 +1,9 @@
 <div id"log_session" class="container">
-  <h1 class="welcome-text">Session: {{ date | date }}</h1>
+  <h1 class="welcome-text">Session: {{ session.date | date }}</h1>
 
   <div class="container musclegroup-log">
 
-	  <div class="row" ng-repeat="muscleGroup in uniqueMuscleGroups">
+	  <div class="row" ng-repeat="muscleGroup in uniqueMuscleGroups()">
 		  <div class="col-md-2">
 		      <h3>{{ muscleGroup }}</h3>
 		  </div>
@@ -12,7 +12,7 @@
 		   <table style="width:100%">
 			  <tr>
 			    <th>Exercise</th>
-			    <th>Weight</th>		
+			    <th>Weight</th>
 			    <th>Repetitions</th>
 			  </tr>
 
