@@ -37,6 +37,7 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
 
 app.controller('ExercisesCtrl', function($scope, exercises) {
   $scope.exercises = exercises.exercises;
+  $scope.muscleGroups = muscleGroups;
   $scope.addExercise = function() {
     $scope.exercises.push(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
   };
