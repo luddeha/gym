@@ -7,12 +7,14 @@ var testSessions = {1: {
     exercises: [
     {
       exercise: 'Bench press',
+      muscleGroup: 'Chest/Shoulders',
       sets: 3,
       reps: 10,
       weight: 70,
     },
     {
       exercise: 'Squats',
+      muscleGroup: 'Legs',
       sets: 3,
       reps: 10,
       weight: 70,
@@ -24,12 +26,14 @@ var testSessions = {1: {
     exercises: [
     {
       exercise: 'Bench press',
+      muscleGroup: 'Chest/Shoulders',
       sets: 3,
       reps: 10,
       weight: 70,
     },
     {
       exercise: 'Squats',
+      muscleGroup: 'Legs',
       sets: 3,
       reps: 10,
       weight: 70,
@@ -38,6 +42,8 @@ var testSessions = {1: {
 };
 
 var exerciseTypes = [];
+
+var muscleGroups = ['Chest/Shoulders', 'Arms', 'Abs', 'Back', 'Legs'];
 
 function addTestData() {
   exerciseTypes.push(new exerciseType('Bench Press', 'The most awesome exercise of them all!', 'Chest', 'http://i.imgur.com/SQa017K.gif'));
@@ -49,6 +55,10 @@ function exerciseType(name, desc, muscle, imageLink) {
   this.description = desc;
   this.muscle = muscle;
   this.image = imageLink;
+}
+
+function getAllMuscleGroups(id){
+
 }
 
 // Factories
@@ -67,7 +77,7 @@ app.controller('SessionsCtrl', function($scope) {
 
 app.controller('SessionCtrl', function($scope, $routeParams) {
   $scope.params = $routeParams;
-  // TODO: something like $scope.exercises =
+  $scope.exercises = testSessions[$routeParams['id']]['exercises'];
 });
 
 app.controller('ExercisesCtrl', function($scope, exercises) {
