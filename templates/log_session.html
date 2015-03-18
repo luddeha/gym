@@ -1,15 +1,14 @@
 <div id"log_session" class="container">
-  <h1 class="welcome-text">Session</h1>
+  <h1 class="welcome-text">Session: {{ date | date }}</h1>
 
   <div class="container musclegroup-log">
 
-
-	  <div class="row">
+	  <div class="row" ng-repeat="muscleGroup in uniqueMuscleGroups">
 		  <div class="col-md-2">
-		      <h3>Chest/Shoulders</h3>
+		      <h3>{{ muscleGroup }}</h3>
 		  </div>
 
-		  <div class="col-md-4">
+		  <div class="col-md-4 bottom-line">
 		   <table style="width:100%">
 			  <tr>
 			    <th>Exercise</th>
@@ -18,7 +17,7 @@
 			  </tr>
 
 			    <div>
-					  <tr ng-repeat="exercise in exercises">
+					  <tr ng-repeat="exercise in exercises | filter:muscleGroup">
 					    <td>{{ exercise.exercise }}</td>
 					    <td>{{ exercise.weight }}</td>
 					    <td>{{ exercise.reps }}</td>

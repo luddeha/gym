@@ -68,3 +68,7 @@ p {
 .musclegroup-log{
 	background-color: rgba(0, 0, 0, 1);
 }
+
+.bottom-line{
+    border-bottom: solid rgba(115, 115, 115, 1);
+}
