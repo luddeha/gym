@@ -50,6 +50,16 @@ function exerciseType(name, desc, muscle, imageLink) {
   this.muscle = muscle;
   this.image = imageLink;
 }
+
+// Factories
+
+app.factory('exercises', [function(){
+  var object = {
+    exercises: exerciseTypes
+  };
+  return object;
+}]);
+
 // Controllers
 app.controller('SessionsCtrl', function($scope) {
   $scope.sessions = testSessions;
@@ -60,10 +70,9 @@ app.controller('SessionCtrl', function($scope, $routeParams) {
   // TODO: something like $scope.exercises =
 });
 
-app.controller('ExercisesCtrl', function($scope) {
-  $scope.exercises = exerciseTypes;
+app.controller('ExercisesCtrl', function($scope, exercises) {
+  $scope.exercises = exercises.exercises;
   $scope.addExercise = function() {
-    console.log('nej')
     $scope.exercises.push(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
   };
 });
