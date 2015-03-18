@@ -1,60 +1,56 @@
 <div id='addExercise' class="container">
-      <form ng-submit="addExercise()">
-        <div class="row">
-          <div class="col-md-3 padding-input-boxes">
-            <div class="input-group">
-              <input
-                id="exerciseImage"
-                type="text"
-                class="form-control"
-                placeholder="Enter image link"
-                ng-model="imageLink">
-            </div><!-- /input-group -->
-          </div>
+  <form ng-submit="addExercise()">
+    <div class="col-md-3 padding-input-boxes">
+      <div class="row">
+        <div class="input-group">
+          <input
+            id="exerciseImage"
+            type="text"
+            class="form-control"
+            placeholder="Enter image link"
+            ng-model="imageLink">
         </div>
-        <div class="row">
-          <div class="col-md-3 padding-input-boxes">
-            <div class="input-group">
-              <input
-                id="exerciseMuscle"
-                type="text"
-                class="form-control"
-                placeholder="Enter exercise name"
-                ng-model="name">
-            </div>
-            <div class="input-group">
-              <input
-              id="exerciseName"
-              type="text"
-              class="form-control"
-              placeholder="Enter name of muscle group"
-              ng-model="muscleGroup">
-            </div><!-- /input-group -->
-          </div>
+        <!-- /input-group -->
+      </div>
+      <div class="row">
+        <div class="input-group">
+          <input
+            id="exerciseMuscle"
+            type="text"
+            class="form-control"
+            placeholder="Enter exercise name"
+            ng-model="name">
         </div>
-        <div class="row">
-          <div class="col-md-3 padding-input-boxes">
-            <div class="input-group">
-              <textarea rows="4" cols="22" 
-              id="exerciseDescription" 
-              placeholder="Enter exercise description"
-              ng-model="description">
-              </textarea>
-            </div><!-- /input-group -->
-          </div>
+      </div>
+      <div class="row">
+        <select id="selected-group" ng-model="selectedGroup" ng-options="group for group in muscleGroups"></select>
+      </div>
+      <div class="row">
+        <div class="input-group">
+          <textarea rows="4" cols="22" 
+            id="exerciseDescription" 
+            placeholder="Enter exercise description"
+            ng-model="description">
+          </textarea>
         </div>
-        <div class="row">
-          <div class="col-md-3 padding-input-boxes">
-            <button id="btnExerciseImage" class="btn btn-default" type="submit">Add</button>
-          </div>
-        </div>
-      </form>
-
-      <table style="width:100%">
-        <tr ng-repeat="exercise in exercises">
-          <td><img ng-src="{{exercise.image}}" alt="dog" style="width:200px;height:200px"></td>
-          <td><h3>{{exercise.name}}</h3></td>
-          <td><p>{{exercise.description}}</p></td>
-        </tr>
-      </table>
+        <!-- /input-group -->
+      </div>
+      <div class="row">
+        <button id="btnExerciseImage" class="btn btn-default" type="submit">Add</button>
+      </div>
     </div>
+  </form>
+  <div class="col-md-9 padding-input-boxes">
+    <table style="width:100%">
+      <tr ng-repeat="exercise in exercises">
+        <td><img ng-src="{{exercise.image}}" alt="404- Not found" style="width:200px;height:200px"></td>
+        <td>
+          <h3>{{exercise.name}}</h3>
+        </td>
+        <td>
+          <p>{{exercise.description}}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
