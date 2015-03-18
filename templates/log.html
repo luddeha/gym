@@ -1,8 +1,11 @@
 <div id='log' class="container">
-	<h1 class="welcome-text">Log</h1>
+	<h1 class="welcome-text">Sessions</h1>
   <div class="text-box">
     <div ng-repeat="(id, session) in sessions">
       <a ng-href="#/sessions/{{id}}">{{ session.date | date }}</a>
     </div>
   </div>
+  <a href="#/sessions/new" class="btn btn-default new-session-cta">
+    New session
+  </a>
 </div>
