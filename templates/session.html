@@ -5,10 +5,11 @@
 	<div class="row">
     <div class="col-md-2 padding-input-boxes">
     	<select>
-  		  <option value="Chest">Chest</option>
+        <option ng-repeat="group in muscleGroups" value="{{group.toLowerCase()}}">{{group}}</option>
+  		  <!-- <option value="Chest">Chest</option>
   		  <option value="Triceps">Triceps</option>
   		  <option value="Biceps">Biceps</option>
-  		  <option value="Back">Back</option>
+  		  <option value="Back">Back</option> -->
   		</select>
     </div>
     <div class="col-md-2 padding-input-boxes">

@@ -3,8 +3,14 @@ app.controller('SessionsCtrl', function($scope) {
 });
 
 app.controller('SessionCtrl', function($scope, $routeParams) {
+  $scope.sessions = testSessions;
   $scope.params = $routeParams;
-  $scope.exercises = testSessions[$routeParams['id']]['exercises'];
+  $scope.id = $routeParams.id || testSessions.length;
+  if(!$scope.sessions[$scope.id]) {
+    $scope.sessions[$scope.id] = {};
+  }
+  $scope.exercises = testSessions[$scope.id].exercises;
+  $scope.muscleGroups = muscleGroups;
   $scope.uniqueMuscleGroups = getAllMuscleGroups($routeParams['id']);
   $scope.date = testSessions[$routeParams['id']]['date'];
 });

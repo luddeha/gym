@@ -8,8 +8,9 @@ app.config(['$routeProvider',
         templateUrl: 'templates/add_exercise.html',
         controller: 'ExercisesCtrl'
       }).
-      when('/session', {
-        templateUrl: 'templates/session.html'
+      when('/session/new', {
+        templateUrl: 'templates/session.html',
+        controller: 'SessionCtrl'
       }).
       when('/log', {
         templateUrl: 'templates/log.html',
