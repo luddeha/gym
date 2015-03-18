@@ -42,6 +42,7 @@ var exerciseTypes = [];
 
 function addTestData() {
   exerciseTypes.push(new exerciseType('Bench Press', 'The most awesome exercise of them all!', 'Chest/Shoulders', 'http://i.imgur.com/SQa017K.gif'));
+  exerciseTypes.push(new exerciseType('Squats', 'The most awesome exercise of them all!', 'Legs', 'http://i.imgur.com/SQa017K.gif'));
 }
 
 addTestData();
