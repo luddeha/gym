@@ -30,10 +30,34 @@
 }
 
 .welcome-text{
-  font-family: 'Tangerine', serif;
   font-size: 48px;
-  text-shadow: 4px 4px 4px #aaa;
-  color: #999;
+  color: #e4e4e4;
+}
+
+.welcome-sub{
+  color: #e4e4e4;
+}
+
+.center-contents {
+  text-align: center;
+}
+
+.welcome-ctas {
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  .welcome-ctas {
+    display: block;
+  }
+  .center-mobile {
+    text-align: center;
+  }
+}
+
+.past-sessions-link {
+  display: block;
+  margin-top: 20px;
 }
 
 h3 {
@@ -49,16 +73,19 @@ p {
 }
 
 .top-buffer{
-	margin-top: 180px;
+	margin-top: 60px;
 }
 
 .padding-input-boxes{
 	padding: 25px;
-	
 }
 
 .text-box {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.new-session-cta {
+  margin-top: 10px;
 }
 
 .banner{
