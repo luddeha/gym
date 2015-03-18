@@ -17,7 +17,7 @@ app.config(['$routeProvider',
         controller: 'SessionsCtrl'
       }).
       when('/log/:id', {
-        templateUrl: 'templates/log_session.html',
+        templateUrl: 'templates/session.html',
         controller: 'SessionCtrl'
       }).
       when('/test', {
