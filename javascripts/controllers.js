@@ -38,7 +38,21 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
 app.controller('ExercisesCtrl', function($scope, exercises) {
   $scope.exercises = exercises.exercises;
   $scope.muscleGroups = muscleGroups;
+
   $scope.addExercise = function() {
-    $scope.exercises.push(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
+	  if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
+	    window.alert("Please fill in all the fields!");
+	  }else{
+    	$scope.exercises.unshift(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
+    }
   };
+  $scope.resetForm = function() {
+	  if($scope.name && $scope.description && $scope.muscleGroup && $scope.imageLink){
+	  	  this.imageLink = null;
+		  this.name = null;
+		  this.description = null;
+		  this.muscle = null;
+		  this.image = null;
+	  }
+	}
 });
