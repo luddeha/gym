@@ -22,27 +22,21 @@
   </div>
   <div class="col-md-10">
     <div class="row" ng-repeat="muscleGroup in uniqueMuscleGroups()">
-      <div class="col-md-3">
+      <div class="col-md-12">
           <h3>{{ muscleGroup }}</h3>
       </div>
 
-      <div class="col-md-4 bottom-line">
-       <table style="width:100%">
-        <tr>
-          <th>Exercise</th>
-          <th>Weight</th>
-          <th>Repetitions</th>
-        </tr>
-
-        <div class="col-md-5">
-          <tr ng-repeat="exercise in exercises | filter:muscleGroup">
-            <td>{{ exercise.exercise }}</td>
-            <td>{{ exercise.weight }}</td>
-            <td>{{ exercise.reps }}</td>
-          </tr>
+      <div class="col-md-12 bottom-line">
+        <div class="row top-descriptions">
+          <span class="col-xs-4">Exercise</span>
+          <span class="col-xs-4">Weight</span>
+          <span class="col-xs-4">Repetitions</span>
         </div>
-
-        </table>
+        <div class="row" ng-repeat="exercise in exercises | filter:muscleGroup">
+          <span class="col-xs-4">{{ exercise.exercise }}</span>
+          <span class="col-xs-4">{{ exercise.weight }}</span>
+          <span class="col-xs-4">{{ exercise.reps }}</span>
+        </div>
       </div>
     </div>
   </div>
