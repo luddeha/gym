@@ -26,20 +26,44 @@
 .arnold{
 	background-image: url("http://i.imgur.com/VgS4oTL.jpg");
 	background-size: 100%;
-    background-attachment: fixed;
+  background-attachment: fixed;
 }
 
 .welcome-text{
-  font-family: 'Tangerine', serif;
   font-size: 48px;
-  text-shadow: 4px 4px 4px #aaa;
-  color: #999;
+  color: #e4e4e4;
+}
+
+.welcome-sub{
+  color: #e4e4e4;
+}
+
+.center-contents {
+  text-align: center;
+}
+
+.welcome-ctas {
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  .welcome-ctas {
+    display: block;
+  }
+  .center-mobile {
+    text-align: center;
+  }
+}
+
+.past-sessions-link {
+  display: block;
+  margin-top: 20px;
 }
 
 h3 {
 	color: #000;
 	font-size: 28px;
-	text-shadow: 0px 0px 2px #999;
+	text-shadow: 0px 0px 0px #500;
 }
 
 p {
@@ -49,20 +73,30 @@ p {
 }
 
 .top-buffer{
-	margin-top: 180px;
+	margin-top: 60px;
 }
 
 .padding-input-boxes{
 	padding: 25px;
-	
 }
 
 .text-box {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+.new-session-cta {
+  margin-top: 10px;
+}
+
 .banner{
-	background-color: rgba(0, 0, 0, 1);
+	background-color: #eee;
+}
+
+.banner a{
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: 1px solid #ddd;
+  color: black;
 }
 
 .link-text{
