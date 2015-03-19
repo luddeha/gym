@@ -1,5 +1,5 @@
 <div id='addExercise' class="container">
-  <form ng-submit="addExercise()">
+  <form ng-submit="addExercise(); resetForm()">
     <div class="col-md-3 padding-input-boxes">
       <div class="row">
         <div class="input-group">
@@ -24,7 +24,10 @@
       </div>
       <div class="row">
         <div class="input-group">
-          <select id="selected-group" ng-model="selectedGroup" ng-options="group for group in muscleGroups"></select>
+          <select id="muscleGroup" ng-model="muscleGroup" ng-options="group for group in muscleGroups">
+            <!-- placeholder -->
+            <option value="" disabled selected>Select main muscle group</option>
+          </select>
         </div>
       </div>
       <div class="row">
@@ -38,7 +41,7 @@
         <!-- /input-group -->
       </div>
       <div class="row">
-        <button id="btnExerciseImage" class="btn btn-default" type="submit">Add</button>
+        <button id="btnExerciseImage" class="btn btn-default" type="submit" ng-submit="reset()">Add</button>
       </div>
     </div>
   </form>
