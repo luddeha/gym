@@ -89,7 +89,14 @@ p {
 }
 
 .banner{
-	background-color: rgba(0, 0, 0, 1);
+	background-color: #eee;
+}
+
+.banner a{
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: 1px solid #ddd;
+  color: black;
 }
 
 .link-text{
