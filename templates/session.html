@@ -10,7 +10,7 @@
     </div>
     <div class="form-group">
       <label for="selected-exercise">Exercise</label><br/>
-      <select id="selected-exercise" ng-model="selectedExercise" ng-options="exercise.name for exercise in allExercises | filter:selectedGroup"></select>
+      <select id="selected-exercise" ng-model="selectedExercise" ng-options="exercise.name for exercise in allExercises | filter:{ muscle:selectedGroup }"></select>
     </div>
     <div class="form-group">
       <label for="weight">Weight lifted</label>
@@ -39,7 +39,7 @@
           <span class="col-xs-4">Weight</span>
           <span class="col-xs-4">Repetitions</span>
         </div>
-        <div class="row" ng-repeat="exercise in exercises | filter:muscleGroup">
+        <div class="row" ng-repeat="exercise in exercises | filter:{muscleGroup:muscleGroup}">
           <span class="col-xs-4">{{ exercise.exercise }}</span>
           <span class="col-xs-4">{{ exercise.weight }}</span>
           <span class="col-xs-4">{{ exercise.reps }}</span>

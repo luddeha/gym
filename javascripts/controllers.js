@@ -25,13 +25,17 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
     return _.uniq(tempMuscleGroups);
   };
   $scope.addExerciseToSession = function() {
-    $scope.exercises.push({
-      exercise: $scope.selectedExercise.name,
-      muscleGroup: $scope.selectedExercise.muscle,
-      sets: $scope.sets,
-      reps: $scope.reps,
-      weight: $scope.weight
-    });
+  	if(!$scope.selectedExercise.name || !$scope.selectedExercise.muscle || isNaN($scope.sets) || isNaN($scope.reps) || isNaN($scope.weight) || !$scope.sets || !$scope.reps || !$scope.weight){
+	    window.alert("Please fill in all the fields and use numbers where appropriate!");
+	}else{
+	    $scope.exercises.push({
+	      exercise: $scope.selectedExercise.name,
+	      muscleGroup: $scope.selectedExercise.muscle,
+	      sets: $scope.sets,
+	      reps: $scope.reps,
+	      weight: $scope.weight
+	    });
+	}
   };
 });
 
