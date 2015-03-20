@@ -2,7 +2,7 @@ app.controller('SessionsCtrl', function($scope) {
   $scope.sessions = testSessions;
 });
 
-app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
+app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises) {
   $scope.sessions = testSessions;
   $scope.params = $routeParams;
   $scope.id = $routeParams.id || testSessions.length;
@@ -17,6 +17,9 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
   $scope.exercises = $scope.sessions[$scope.id].exercises;
   $scope.muscleGroups = muscleGroups;
   $scope.selectedGroup = $scope.muscleGroups[0];
+  $scope.$watch('selectedGroup', function() {
+    $scope.selectedExercise = null;
+  });
   $scope.uniqueMuscleGroups = function(){
     var tempMuscleGroups = [];
     for(i = 0; i < $scope.exercises.length; i++){
@@ -25,7 +28,7 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
     return _.uniq(tempMuscleGroups);
   };
   $scope.addExerciseToSession = function() {
-  	if(!$scope.selectedExercise.name || !$scope.selectedExercise.muscle || isNaN($scope.sets) || isNaN($scope.reps) || isNaN($scope.weight) || !$scope.sets || !$scope.reps || !$scope.weight){
+  	if(!$scope.selectedExercise || !$scope.selectedExercise.name || !$scope.selectedExercise.muscle || isNaN($scope.sets) || isNaN($scope.reps) || isNaN($scope.weight) || !$scope.sets || !$scope.reps || !$scope.weight){
 	    window.alert("Please fill in all the fields and use numbers where appropriate!");
 	}else{
 	    $scope.exercises.push({
