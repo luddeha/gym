@@ -20,6 +20,23 @@ app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises)
   $scope.$watch('selectedGroup', function() {
     $scope.selectedExercise = null;
   });
+  $scope.$watch('selectedExercise', function() {
+    if(!$scope.selectedExercise) {
+      return;
+    }
+    var previous;
+    $scope.sessions.forEach(function(sess) {
+      sess.exercises.forEach(function(exercise) {
+        if(exercise.exercise && $scope.selectedExercise && exercise.exercise.toLowerCase() === $scope.selectedExercise.name.toLowerCase()){
+          previous = exercise;
+        }
+      });
+    });
+    previous = previous || {};
+    $scope.weight = previous.weight;
+    $scope.sets = previous.sets;
+    $scope.reps = previous.reps;
+  });
   $scope.uniqueMuscleGroups = function(){
     var tempMuscleGroups = [];
     for(i = 0; i < $scope.exercises.length; i++){
@@ -46,7 +63,7 @@ app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises)
   		console.log(currentExercise.name+ ' ' + sets +' '+reps+' '+weight);
   		if(currentExercise.exercise === name && currentExercise.sets === sets && currentExercise.reps === reps && currentExercise.weight === weight){
   			return true;
-  		};
+  		}
   		return false;
   	});
   };
@@ -57,9 +74,9 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   $scope.muscleGroups = muscleGroups;
 
   $scope.addExercise = function() {
-  	  if(_.find($scope.exercises, function(currentExercise){ 
-  	  		return (currentExercise.name === $scope.name); 
-  	  	})){
+	  if(_.find($scope.exercises, function(currentExercise){ 
+	  		return (currentExercise.name === $scope.name); 
+	  	})){
 	    window.alert("Name is already taken!");
   	  }else if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
 	    window.alert("Please fill in all the fields!");
@@ -76,7 +93,7 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   		console.log(currentExercise.name);
   		if(currentExercise.name === name){
   			return true;
-  		};
+  		}
   		return false;
   	});
   };
@@ -88,5 +105,5 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
 		  this.muscle = null;
 		  this.image = null;
 	  }
-	}
+	};
 });
