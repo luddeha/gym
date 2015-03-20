@@ -91,7 +91,7 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   		return;
   	}
   	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
-  		if(currentExercise.name === name && first){
+  		if(currentExercise.name === name){
   			return true;
   		}
   		return false;
