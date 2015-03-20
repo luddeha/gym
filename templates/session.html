@@ -27,6 +27,7 @@
         <input name="reps" ng-model="reps" type="number" class="form-control" placeholder="Repetitions">
       </div>
       <button id="btnExerciseImage" class="btn btn-default" type="submit">Add</button>
+      <div class="btn btn-success add-success">Added</div>
     </form>
   </div>
   <div class="col-md-10">
@@ -48,7 +49,7 @@
           <span class="col-xs-2">{{ exercise.weight }}</span>
           <span class="col-xs-2">{{ exercise.sets }}</span>
           <span class="col-xs-3">{{ exercise.reps }}</span>
-          <span class="col-xs-2"> <button ng-click="deleteExerciseFromSession(exercise.exercise, exercise.sets, exercise.reps, exercise.weight)" class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button> </span>
+          <span class="col-xs-2"> <button ng-click="deleteExerciseFromSession(exercise.exercise, exercise.sets, exercise.reps, exercise.weight, $index)" class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button> </span>
         </div>
       </div>
     </div>
