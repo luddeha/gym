@@ -57,11 +57,25 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   $scope.muscleGroups = muscleGroups;
 
   $scope.addExercise = function() {
-	  if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
+  	  if(_.find($scope.exercises, function(currentExercise){ 
+  	  		return (currentExercise.name === $scope.name); 
+  	  	})){
+	    window.alert("Name is already taken!");
+  	  }else if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
 	    window.alert("Please fill in all the fields!");
 	  }else{
     	$scope.exercises.unshift(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
     }
+  };
+  $scope.deleteExcercise = function(name) {
+  	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
+  		console.log(name);
+  		console.log(currentExercise.name);
+  		if(currentExercise.name === name){
+  			return true;
+  		};
+  		return false;
+  	});
   };
   $scope.resetForm = function() {
 	  if($scope.name && $scope.description && $scope.muscleGroup && $scope.imageLink){
