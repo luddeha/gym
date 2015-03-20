@@ -42,8 +42,6 @@ app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises)
   };
   $scope.deleteExerciseFromSession = function(name, sets, reps, weight) {
   	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
-  		console.log(name+ ' ' + sets +' '+reps+' '+weight);
-  		console.log(currentExercise.name+ ' ' + sets +' '+reps+' '+weight);
   		if(currentExercise.exercise === name && currentExercise.sets === sets && currentExercise.reps === reps && currentExercise.weight === weight){
   			return true;
   		};
@@ -69,8 +67,6 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   };
   $scope.deleteExcercise = function(name) {
   	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
-  		console.log(name);
-  		console.log(currentExercise.name);
   		if(currentExercise.name === name){
   			return true;
   		};
