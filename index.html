@@ -22,8 +22,10 @@
 
   <body class="background">
     <div ng-app="app">
-      <div ng-include src="'templates/link_banner.html'"></div>
-
+      <nav class="navbar navbar-fixed-top">
+        <div ng-include src="'templates/link_banner.html'"></div>
+      </nav>
+      <br>
       <div ng-view></div>
 
     </div>
