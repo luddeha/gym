@@ -75,7 +75,7 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
 
   $scope.addExercise = function() {
 	  if(_.find($scope.exercises, function(currentExercise){ 
-	  		return (currentExercise.name === $scope.name); 
+	  		return (currentExercise.name.toLowerCase() === $scope.name.toLowerCase()); 
 	  	})){
 	    window.alert("Name is already taken!");
   	  }else if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
