@@ -147,6 +147,7 @@ img.bg-img {
 }
 
 .add-success {
+  float: right;
   opacity: 0;
 }
 
