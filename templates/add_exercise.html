@@ -8,7 +8,7 @@
             id="exerciseImage"
             type="text"
             class="form-control"
-            placeholder="E.g. http://example.com/image.jpeg"
+            placeholder="Enter link to image"
             ng-model="imageLink">
         </div>
       </div>
@@ -49,12 +49,15 @@
   </form>
   <div class="col-md-9 padding-input-boxes">
     <div class="row exercise-row line" ng-repeat="exercise in exercises">
-      <div class="col-md-5"><img class="exercise-img" ng-src="{{exercise.image}}" alt="404- Not found"></div>
+      <div class="col-md-4"><img class="exercise-img" ng-src="{{exercise.image}}" alt="404- Not found"></div>
       <div class="col-md-3">
         <h3>{{exercise.name}}</h3>
       </div>
       <div class="col-md-4">
         <p>{{exercise.description}}</p>
+      </div>
+      <div class="col-md-1">
+        <button ng-click="deleteExcercise(exercise.name)" class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button>
       </div>
     </div>
   </div>
