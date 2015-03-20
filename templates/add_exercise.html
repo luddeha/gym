@@ -2,21 +2,21 @@
   <form ng-submit="addExercise(); resetForm()">
     <div class="col-md-3 padding-input-boxes">
       <div class="row">
-        <div class="form-group">
+        <div class="form-group" ng-class="{ error: inputForm.exerciseImage.$invalid }">
           <label for="exerciseImage">Image link</label>
           <input
-            id="exerciseImage"
-            type="text"
+            name="exerciseImage"
+            type="url"
             class="form-control"
             placeholder="E.g. http://example.com/image.jpeg"
             ng-model="imageLink">
         </div>
       </div>
       <div class="row">
-        <div class="form-group">
+        <div class="form-group" ng-class="{ error: inputForm.exerciseMuscle.$invalid }">
           <label for="exerciseMuscle">Exercise name</label>
           <input
-            id="exerciseMuscle"
+            name="exerciseMuscle"
             type="text"
             class="form-control"
             placeholder="Enter exercise name"
@@ -26,16 +26,19 @@
       <div class="row">
         <div class="form-group">
           <label for="muscleGroup">Main muscle group</label>
-          <select id="muscleGroup" ng-model="muscleGroup" ng-options="group for group in muscleGroups">
+          <select name="muscleGroup" ng-model="muscleGroup" ng-options="group for group in muscleGroups">
             <option value="" disabled selected>Select main muscle group</option>
           </select>
         </div>
       </div>
       <div class="row">
-        <div class="form-group">
+        <div class="form-group" ng-class="{ error: inputForm.exerciseDescription.$invalid }">
           <label for="exerciseDescription">Description</label><br/>
-          <textarea rows="4" cols="22"
-            id="exerciseDescription"
+          <textarea
+            rows="4"
+            cols="22"
+            name="exerciseDescription"
+            type="text"
             placeholder="Enter exercise description"
             ng-model="description">
           </textarea>
