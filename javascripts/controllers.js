@@ -37,6 +37,16 @@ app.controller('SessionCtrl', function($scope, $routeParams, exercises) {
 	    });
 	}
   };
+  $scope.deleteExerciseFromSession = function(name, sets, reps, weight) {
+  	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
+  		console.log(name+ ' ' + sets +' '+reps+' '+weight);
+  		console.log(currentExercise.name+ ' ' + sets +' '+reps+' '+weight);
+  		if(currentExercise.exercise === name && currentExercise.sets === sets && currentExercise.reps === reps && currentExercise.weight === weight){
+  			return true;
+  		};
+  		return false;
+  	});
+  };
 });
 
 app.controller('ExercisesCtrl', function($scope, exercises) {
