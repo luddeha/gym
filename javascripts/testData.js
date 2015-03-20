@@ -1,5 +1,5 @@
-var testSessions = [{
-    id: 0,
+var testSessions = [
+  {
     date: new Date(2015, 1, 10),
     exercises: [
     {
@@ -18,7 +18,6 @@ var testSessions = [{
     }]
   },
   {
-    id: 1,
     date: new Date(2015, 1, 13),
     exercises: [
     {
