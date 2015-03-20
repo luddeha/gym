@@ -44,7 +44,7 @@
           <span class="col-xs-4">{{ exercise.exercise }}</span>
           <span class="col-xs-3">{{ exercise.weight }}</span>
           <span class="col-xs-3">{{ exercise.reps }}</span>
-          <span class="col-xs-2"> <button class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button> </span>
+          <span class="col-xs-2"> <button ng-click="deleteExerciseFromSession(exercise.exercise, exercise.sets, exercise.reps, exercise.weight)" class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button> </span>
         </div>
       </div>
     </div>
