@@ -42,12 +42,13 @@ app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises)
     for(i = 0; i < $scope.exercises.length; i++){
       tempMuscleGroups.push($scope.exercises[i].muscleGroup);
     }
-    return _.uniq(tempMuscleGroups);
+    return _.uniq(tempMuscleGroups).sort();
   };
   $scope.addExerciseToSession = function() {
   	if(!$scope.selectedExercise || !$scope.selectedExercise.name || !$scope.selectedExercise.muscle || isNaN($scope.sets) || isNaN($scope.reps) || isNaN($scope.weight) || !$scope.sets || !$scope.reps || !$scope.weight){
 	    window.alert("Please fill in all the fields and use numbers where appropriate!");
 	}else{
+      $('.add-success').css('opacity', 1).animate({opacity: 0}, 2000)
 	    $scope.exercises.push({
 	      exercise: $scope.selectedExercise.name,
 	      muscleGroup: $scope.selectedExercise.muscle,
@@ -57,12 +58,12 @@ app.controller('SessionCtrl', function($scope, $routeParams, $filter, exercises)
 	    });
 	}
   };
-  $scope.deleteExerciseFromSession = function(name, sets, reps, weight) {
+  $scope.deleteExerciseFromSession = function(name, sets, reps, weight, index) {
+    var first = true;
   	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
-  		console.log(name+ ' ' + sets +' '+reps+' '+weight);
-  		console.log(currentExercise.name+ ' ' + sets +' '+reps+' '+weight);
-  		if(currentExercise.exercise === name && currentExercise.sets === sets && currentExercise.reps === reps && currentExercise.weight === weight){
-  			return true;
+  		if(first && currentExercise.exercise === name && currentExercise.sets === sets && currentExercise.reps === reps && currentExercise.weight === weight){
+  			first = false;
+        return true;
   		}
   		return false;
   	});
@@ -81,6 +82,7 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   	  }else if(!$scope.name || !$scope.description || !$scope.muscleGroup || !$scope.imageLink){
 	    window.alert("Please fill in all the fields!");
 	  }else{
+      $('.add-success').css('opacity', 1).animate({opacity: 0}, 2000)
     	$scope.exercises.unshift(new exerciseType($scope.name, $scope.description, $scope.muscleGroup, $scope.imageLink));
     }
   };
@@ -89,9 +91,7 @@ app.controller('ExercisesCtrl', function($scope, exercises) {
   		return;
   	}
   	$scope.exercises = _.reject($scope.exercises, function(currentExercise){
-  		console.log(name);
-  		console.log(currentExercise.name);
-  		if(currentExercise.name === name){
+  		if(currentExercise.name === name && first){
   			return true;
   		}
   		return false;

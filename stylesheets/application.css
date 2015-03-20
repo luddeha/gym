@@ -142,6 +142,10 @@ img.bg-img {
   color: #ddd;
 }
 
+.add-success {
+  opacity: 0;
+}
+
 @media screen and (max-width: 600px) {
   .welcome-ctas {
     display: block;
