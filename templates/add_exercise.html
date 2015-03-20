@@ -2,18 +2,19 @@
   <form ng-submit="addExercise(); resetForm()">
     <div class="col-md-3 padding-input-boxes">
       <div class="row">
-        <div class="input-group">
+        <div class="form-group">
+          <label for="exerciseImage">Image link</label>
           <input
             id="exerciseImage"
             type="text"
             class="form-control"
-            placeholder="Enter image link"
+            placeholder="E.g. http://example.com/image.jpeg"
             ng-model="imageLink">
         </div>
-        <!-- /input-group -->
       </div>
       <div class="row">
-        <div class="input-group">
+        <div class="form-group">
+          <label for="exerciseMuscle">Exercise name</label>
           <input
             id="exerciseMuscle"
             type="text"
@@ -23,7 +24,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-group">
+        <div class="form-group">
+          <label for="muscleGroup">Main muscle group</label>
           <select id="muscleGroup" ng-model="muscleGroup" ng-options="group for group in muscleGroups">
             <!-- placeholder -->
             <option value="" disabled selected>Select main muscle group</option>
@@ -31,14 +33,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="input-group">
-          <textarea rows="4" cols="22" 
-            id="exerciseDescription" 
+        <div class="form-group">
+          <label for="exerciseDescription">Description</label><br/>
+          <textarea rows="4" cols="22"
+            id="exerciseDescription"
             placeholder="Enter exercise description"
             ng-model="description">
           </textarea>
         </div>
-        <!-- /input-group -->
       </div>
       <div class="row">
         <button id="btnExerciseImage" class="btn btn-default" type="submit" ng-submit="reset()">Add</button>
@@ -46,16 +48,14 @@
     </div>
   </form>
   <div class="col-md-9 padding-input-boxes">
-    <table style="width:100%">
-      <tr ng-repeat="exercise in exercises">
-        <td><img ng-src="{{exercise.image}}" alt="404- Not found" style="width:200px;height:200px"></td>
-        <td>
-          <h3>{{exercise.name}}</h3>
-        </td>
-        <td>
-          <p>{{exercise.description}}</p>
-        </td>
-      </tr>
-    </table>
+    <div class="row exercise-row" ng-repeat="exercise in exercises">
+      <div class="col-md-5"><img class="exercise-img" ng-src="{{exercise.image}}" alt="404- Not found"></div>
+      <div class="col-md-3">
+        <h3>{{exercise.name}}</h3>
+      </div>
+      <div class="col-md-4">
+        <p>{{exercise.description}}</p>
+      </div>
+    </div>
   </div>
 </div>
