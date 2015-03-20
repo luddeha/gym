@@ -36,13 +36,15 @@
       <div class="col-md-12 bottom-line">
         <div class="row top-descriptions">
           <span class="col-xs-4">Exercise</span>
-          <span class="col-xs-4">Weight</span>
-          <span class="col-xs-4">Repetitions</span>
+          <span class="col-xs-3">Weight</span>
+          <span class="col-xs-3">Repetitions</span>
+          <span class="col-xs-2"></span>
         </div>
         <div class="row" ng-repeat="exercise in exercises | filter:{muscleGroup:muscleGroup}">
           <span class="col-xs-4">{{ exercise.exercise }}</span>
-          <span class="col-xs-4">{{ exercise.weight }}</span>
-          <span class="col-xs-4">{{ exercise.reps }}</span>
+          <span class="col-xs-3">{{ exercise.weight }}</span>
+          <span class="col-xs-3">{{ exercise.reps }}</span>
+          <span class="col-xs-2"> <button class="glyphicon glyphicon-remove-sign btn btn-danger delete-button" type="button"></button> </span>
         </div>
       </div>
     </div>
